@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,11 +25,16 @@ import javax.persistence.Table;
 public class Cliente implements Serializable {
 
     @Id
+    @Column(name = "idClient")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idClient;
+    @Column(name = "email", length = 45)
     private String email;
+    @Column(name = "password", length = 45)
     private String password;
+    @Column(name = "name", length = 250)
     private String name;
+    @Column(name = "age", scale = 0)
     private Integer age;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")

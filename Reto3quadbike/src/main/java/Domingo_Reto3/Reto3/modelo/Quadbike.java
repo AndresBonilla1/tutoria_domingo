@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,11 +24,16 @@ public class Quadbike implements Serializable {
 
     // OJO CON EL JSON, mirar los nombres de las variables en martertech
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "name", length = 45)
     private String name;
+    @Column(name = "brand", length = 45)
     private String brand;
+    @Column(name = "year", precision = 4, scale = 0)
     private Integer year;
+    @Column(name = "description", length = 250)
     private String description;
 
     @ManyToOne

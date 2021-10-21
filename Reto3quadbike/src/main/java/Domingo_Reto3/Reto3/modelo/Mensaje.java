@@ -6,6 +6,7 @@ package Domingo_Reto3.Reto3.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,8 +24,10 @@ import javax.persistence.Table;
 public class Mensaje implements Serializable {
 
     @Id
+    @Column(name = "idMessage")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
+    @Column(name = "messageText", length = 250)
     private String messageText;
 
     @ManyToOne
